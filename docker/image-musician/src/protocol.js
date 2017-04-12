@@ -1,24 +1,21 @@
 module.exports = {
-    "instruments": [
-        {
-            "name": "piano",
+    "ADDRESS": "239.255.22.5",
+    "PORT": 8080,
+    "instruments": {
+        "piano": {
             "sound": "ti-ta-ti"
         },
-        {
-            "name": "trumpet",
+        "trumpet": {
             "sound": "pouet"
         },
-        {
-            "name": "flute",
+        "flute": {
             "sound": "trulu"
         },
-        {
-            "name": "violin",
+        "violin": {
             "sound": "gzi-gzi"
         },
-        {
-            "name": "drum",
+        "drum": {
             "sound": "boum-boum"
         }
-    ]
+    }
 };
