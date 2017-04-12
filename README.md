@@ -121,21 +121,21 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic
 | ---  | ---
 |Question | In a JavaScript program, if we have an object, how can we **serialize it in JSON**?
-| | *Enter your response here...*
+| | Using the method `JSON.stringify(obj)` where `obj` is an object.
 |Question | What is **npm**?
-| | *Enter your response here...*
+| | **npm** stands for *Node.js Package Manager*. It's a package manager for JavaScript.
 |Question | What is the `npm install` command and what is the purpose of the `--save` flag?
-| | *Enter your response here...*
+| | The command is used to install a package. If the flag `--save` is specified, then the package will be saved into the project's packages list (stored in the `package.json` file).
 |Question | How can we use the `https://www.npmjs.com/` web site?
-| | *Enter your response here...*
+| | The website can be used for searching Javascript packages useful for our on-going project.
 |Question | In JavaScript, how can we **generate a UUID** compliant with RFC4122?
-| | *Enter your response here...*
+| | By using the [uuid](https://www.npmjs.com/package/uuid) package.
 |Question | In Node.js, how can we execute a function on a **periodic** basis?
-| | *Enter your response here...*
+| | By using the [`setInterval()`](https://nodejs.org/api/timers.html#timers_setinterval_callback_delay_args) method offered by the `timer` module.
 |Question | In Node.js, how can we **emit UDP datagrams**?
-| | *Enter your response here...*
+| | By using the [`send()`](https://nodejs.org/api/dgram.html#dgram_socket_send_msg_offset_length_port_address_callback) method on a `dgram.Socket` object.
 |Question | In Node.js, how can we **access the command line arguments**?
-| | *Enter your response here...*
+| | By accessing the `process.argv` array.
 
 
 ## Task 3: package the "musician" app in a Docker image
