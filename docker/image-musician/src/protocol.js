@@ -1,0 +1,24 @@
+module.exports = {
+    "instruments": [
+        {
+            "name": "piano",
+            "sound": "ti-ta-ti"
+        },
+        {
+            "name": "trumpet",
+            "sound": "pouet"
+        },
+        {
+            "name": "flute",
+            "sound": "trulu"
+        },
+        {
+            "name": "violin",
+            "sound": "gzi-gzi"
+        },
+        {
+            "name": "drum",
+            "sound": "boum-boum"
+        }
+    ]
+};
