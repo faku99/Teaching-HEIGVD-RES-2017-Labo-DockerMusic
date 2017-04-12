@@ -3,10 +3,10 @@
 ## Admin
 
 * Every student must deliver a complete solution.
-* It is up to you if you want to fork this repo, or if you prefer to work in a private repo. However, you have to use exactly the same directory structure for the validation procedure to work. 
+* It is up to you if you want to fork this repo, or if you prefer to work in a private repo. However, you have to use exactly the same directory structure for the validation procedure to work.
 * There will not be a "full" lab grade for this long lab, but there will be one point to gain for the "salami" TE grade (i.e. it is one of the "challenges"). Also, the skills that you will learn during this lab will be necessary for subsequent labs.
 * We expect that you will have more issues and questions than with other labs (because we have a left some questions open on purpose). Please ask your questions on telegram or in the forum, so that everyone in the class can benefit from the discussion.
- 
+
 ## Objectives
 
 This lab has 4 objectives:
@@ -43,7 +43,7 @@ The following table gives you the mapping between instruments and sounds. Please
 | `violin`   | `gzi-gzi`     |
 | `drum`     | `boum-boum`   |
 
-### TCP-based protocol to be implemented by the Auditor application
+### <a name="AuditorProtocol"></a>TCP-based protocol to be implemented by the Auditor application
 
 * The auditor should include a TCP server and accept connection requests on port 2205.
 * After accepting a connection request, the auditor should send a JSON payload containing the list of active musicians, with the following format (it can be a single line, without indentation):
@@ -105,15 +105,15 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic |
 | --- | --- |
 |Question | How can we represent the system in an **architecture diagram**, which gives information both about the Docker containers, the communication protocols and the commands? |
-| | *Insert your diagram here...* |
+| | ![Architecture diagram](images/Architecture.png) |
 |Question | Who is going to **send UDP datagrams** and **when**? |
-| | *Enter your response here...* |
+| | Every second, each *musician* will send an UDP datagram. |
 |Question | Who is going to **listen for UDP datagrams** and what should happen when a datagram is received? |
-| | *Enter your response here...* |
+| | The *auditor* will listen for UDP datagrams. When a datagram is received, then its informations should be stored in a list which represents active musicians so we can know at any moment who is playing music. |
 |Question | What **payload** should we put in the UDP datagrams? |
-| | *Enter your response here...* |
+| | Piano example: `{ "instrument": "piano", "sound": "ti-ta-ti" }` |
 |Question | What **data structures** do we need in the UDP sender and receiver? When will we update these data structures? When will we query these data structures? |
-| | *Enter your response here...* |
+| | A *musician* will simply needs two `String` object: one for storing the instrument he plays and the other to store the sound made by this same instrument.<br/>An *auditor* needs an array for storing all active *musicians*. Each entry has three properties: `uuid`, `instrument` and `activeSince`. For more details, check the [Auditor TCP Protocol section](#AuditorProtocol). |
 
 
 ## Task 2: implement a "musician" Node.js application
@@ -162,13 +162,13 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | ---  | ---
 |Question | With Node.js, how can we listen for UDP datagrams in a multicast group?
 | | *Enter your response here...*
-|Question | How can we use the `Map` built-in object introduced in ECMAScript 6 to implement a **dictionary**? 
+|Question | How can we use the `Map` built-in object introduced in ECMAScript 6 to implement a **dictionary**?
 | | *Enter your response here...*
-|Question | How can we use the `Moment.js` npm module to help us with **date manipulations** and formatting? 
+|Question | How can we use the `Moment.js` npm module to help us with **date manipulations** and formatting?
 | | *Enter your response here...*
-|Question | When and how do we **get rid of inactive players**? 
+|Question | When and how do we **get rid of inactive players**?
 | | *Enter your response here...*
-|Question | How do I implement a **simple TCP server** in Node.js? 
+|Question | How do I implement a **simple TCP server** in Node.js?
 | | *Enter your response here...*
 
 
