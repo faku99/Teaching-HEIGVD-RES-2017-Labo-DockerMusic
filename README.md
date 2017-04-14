@@ -143,17 +143,17 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic
 | ---  | ---
 |Question | How do we **define and build our own Docker image**?
-| | *Enter your response here...*
+| | We define a Docker image by writing a `Dockerfile`. It describes the files, environment and commands that make up an image. To build a Docker image, we use the command `docker build -t <image_tag> <image_dir>`.
 |Question | How can we use the `ENTRYPOINT` statement in our Dockerfile?
-| | *Enter your response here...*
+| | Two forms are possible: `ENTRYPOINT ["executable", "param1", "param2"]` (**exec** form) and `ENTRYPOINT command param1 param2` (**shell** form).
 |Question | After building our Docker image, how do we use it to **run containers**?
-| | *Enter your response here...*
+| | `docker run <image> <ENTRYPOINT>`
 |Question | How do we get the list of all **running containers**?
-| | *Enter your response here...*
+| | `docker ps`
 |Question | How do we **stop/kill** one running container?
-| | *Enter your response here...*
+| | `docker stop <container>` or `docker kill <container>`
 |Question | How can we check that our running containers are effectively sending UDP datagrams?
-| | *Enter your response here...*
+| | By using [Wireshark](https://www.wireshark.org/)
 
 
 ## Task 4: implement an "auditor" Node.js application
