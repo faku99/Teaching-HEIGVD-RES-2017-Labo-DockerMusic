@@ -145,7 +145,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | How do we **define and build our own Docker image**?
 | | We define a Docker image by writing a `Dockerfile`. It describes the files, environment and commands that make up an image. To build a Docker image, we use the command `docker build -t <image_tag> <image_dir>`.
 |Question | How can we use the `ENTRYPOINT` statement in our Dockerfile?
-| | Two forms are possible: `ENTRYPOINT ["executable", "param1", "param2"]` (**exec** form) and `ENTRYPOINT command param1 param2` (**shell** form).
+| | Two forms are possible: `ENTRYPOINT ["executable", "param1", "param2"]` (*exec* form) and `ENTRYPOINT command param1 param2` (*shell* form).
 |Question | After building our Docker image, how do we use it to **run containers**?
 | | `docker run <image> <ENTRYPOINT>`
 |Question | How do we get the list of all **running containers**?
@@ -153,7 +153,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 |Question | How do we **stop/kill** one running container?
 | | `docker stop <container>` or `docker kill <container>`
 |Question | How can we check that our running containers are effectively sending UDP datagrams?
-| | By using [Wireshark](https://www.wireshark.org/)
+| | ...
 
 
 ## Task 4: implement an "auditor" Node.js application
@@ -161,15 +161,15 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic
 | ---  | ---
 |Question | With Node.js, how can we listen for UDP datagrams in a multicast group?
-| | *Enter your response here...*
+| | By using the method [`bind()`](https://nodejs.org/api/dgram.html#dgram_socket_bind_port_address_callback) on an UDP socket.
 |Question | How can we use the `Map` built-in object introduced in ECMAScript 6 to implement a **dictionary**?
-| | *Enter your response here...*
+| | `var map = new Map(); map.set(key, value);` where `key` is the key and `value` is the value corresponding to the key.
 |Question | How can we use the `Moment.js` npm module to help us with **date manipulations** and formatting?
-| | *Enter your response here...*
+| | `moment().subtract()` for getting time intervals and `moment.format()` for formatting.
 |Question | When and how do we **get rid of inactive players**?
-| | *Enter your response here...*
+| | When they become inactive more than 5 seconds. We simply remove them from the dictionary with the method `map.delete(key)`.
 |Question | How do I implement a **simple TCP server** in Node.js?
-| | *Enter your response here...*
+| | By using the method `createServer()` from the `net` npm module.
 
 
 ## Task 5: package the "auditor" app in a Docker image
@@ -177,7 +177,7 @@ When you connect to the TCP interface of the **Auditor**, you should receive an 
 | #  | Topic
 | ---  | ---
 |Question | How do we validate that the whole system works, once we have built our Docker image?
-| | *Enter your response here...*
+| | By executing the script [`validate.sh`](validate.sh).
 
 
 ## Constraints
