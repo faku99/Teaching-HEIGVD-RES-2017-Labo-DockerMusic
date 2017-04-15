@@ -2,8 +2,9 @@ var protocol = require('./protocol');
 
 // UDP datagram.
 var dgram = require('dgram');
+const uuid = require('uuid/v1');
 
-if(process.argv.length != 3) {
+if (process.argv.length != 3) {
     console.log('Invalid number of arguments.');
     console.log('Usage: node app.js <instrument name>');
 
@@ -11,9 +12,9 @@ if(process.argv.length != 3) {
 }
 
 var name = process.argv[2];
-var instrument = protocol.instruments[name];
+var sound = protocol.instruments[name];
 
-if(instrument == null) {
+if (sound == null) {
     console.log('Instrument not found...');
 
     return;
@@ -23,28 +24,21 @@ if(instrument == null) {
 var socket = dgram.createSocket('udp4');
 
 // Instrument class.
-function Instrument(name, sound) {
-    this.name = name;
+function Instrument(uuid, sound) {
+    this.uuid = uuid;
     this.sound = sound;
 
     Instrument.prototype.update = function() {
-        var message = {
-            "name": this.name,
-            "sound": this.sound
-        };
-        var payload = new Buffer(JSON.stringify(message));
+        var payload = new Buffer(JSON.stringify(this));
 
-
-        socket.send(payload, 0, payload.length, protocol.PORT, protocol.ADDRESS, function(err, res) {
-            if(err) {
+        socket.send(payload, 0, payload.length, protocol.MULTICAST_PORT, protocol.MULTICAST_ADDRESS, function(err, res) {
+            if (err) {
                 throw new Error(err);
             }
-
-            console.log('Sent: ' + payload);
         });
     };
 
     setInterval(this.update.bind(this), 1000);
 }
 
-instrument = new Instrument(name, instrument.sound);
+instrument = new Instrument(uuid(), sound);
